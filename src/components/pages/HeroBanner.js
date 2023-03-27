@@ -5,7 +5,7 @@ import HomePic from '../../assets/images/banner.png'
 
 const HeroBanner = () => {
   return (
-    <div>
+
     <Box
     sx={{
         mt:{lg:'212px',xs:'70px'},
@@ -33,9 +33,10 @@ sx={{
 </Typography>
 
         <img src={HomePic} className ="hero-banner-img"/>
+        <Button variant='outlined' sx={{color:'#FF2625'}} >Find exercise</Button>
     </Box> 
-    <Button variant='outlined' sx={{color:'#FF2625'}}>Find exercise</Button>
-    </div>
+    
+
   )
 }
 

@@ -10,11 +10,14 @@ const SearchBar = () => {
         fontSize:{lg:'44px',xs:'30px'}
     }} >Search For Workout</Typography>
     <Box position="relative" mb="70px"> 
-    <TextField>
-    </TextField>    
+    <TextField
+    
+    />
+    
+    <Button>Search</Button>  
     </Box>
     
-    <Button>Search</Button>
+    
    </Stack>
 
   )
