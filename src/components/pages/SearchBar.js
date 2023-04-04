@@ -106,7 +106,7 @@ const searchedExercises = exercisesData.filter(
         p:'20px'
       }}
       >
-       <HorizontalScrollbar  data={bodyParts}/>   
+       <HorizontalScrollbar  data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>   
       </Box>
     </Stack>
   );

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Stack,Typography } from '@mui/material'
+import { capitalize, Stack,Typography } from '@mui/material'
 
 import Icon from '../assets/icons/gym.png'
 
@@ -19,8 +19,18 @@ const BodyPart = ({item, bodyPart, setBodyPart}) => {
         height: '270px',
         gap:'45px'
             }}
+        onClick={()=>{
+            setBodyPart(item)
+            window.scrollTo({ top:1800, left:100, behavior:'smooth'})
+        
+        }} 
+         
+            
     >
         <img src={Icon} alt="dumbell" style={{width:'40px',height:'40px'}} />
+        <Typography fontSize={25} fontWeight="bold" textTransform="capitalize" color="#3A1212">
+            {item}
+        </Typography>
     </Stack>
   )
 }
