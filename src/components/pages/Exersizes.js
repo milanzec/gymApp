@@ -9,27 +9,27 @@ const Exersizes = ({ exercises, setExercises, bodyPart }) => {
   const exercisePerPage = 9;
 
   
-  useEffect(() => {
-    const fetchExerciseData = async () => {
-      let exerciseData = [];
-  
-      if (bodyPart === "all") {
-        exerciseData = await fetchData(
-          "https://exercisedb.p.rapidapi.com/exercises/",
-          exersizeOptions
-        );
-      } else {
-        exerciseData = await fetchData(
-          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
-          exersizeOptions
-        );
-      }
-      setExercises(exerciseData);
-    };
-  
-    fetchExerciseData();
-  }, [bodyPart, setExercises]);
-  
+    useEffect(() => {
+      const fetchExerciseData = async () => {
+        let exerciseData = [];
+    
+        if (bodyPart === "all") {
+          exerciseData = await fetchData(
+            "https://exercisedb.p.rapidapi.com/exercises/",
+            exersizeOptions
+          );
+        } else {
+          exerciseData = await fetchData(
+            `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
+            exersizeOptions
+          );
+        }
+        setExercises(exerciseData);
+      };
+    
+      fetchExerciseData();
+    }, [bodyPart, setExercises]);
+    
 
   if (exercises && exercises.length > 0) {
     const indexOfLastExercise = currentPage * exercisePerPage;
@@ -58,7 +58,7 @@ const Exersizes = ({ exercises, setExercises, bodyPart }) => {
           sx={{ gap: { lg: "110px", xs: "50px" } }}
         >
           {currentExercises.map((exer, index) => (
-            <ExersiceCard key={index} exercise={exer} />
+            <ExersiceCard key={exer.id} exercise={exer} />
           ))}
         </Stack>
         <Stack mt="120px" alignItems="center">
@@ -72,7 +72,7 @@ const Exersizes = ({ exercises, setExercises, bodyPart }) => {
               size="large"
             />
           )}
-          {console.log(exercises)}
+          {console.log(currentExercises)}
         </Stack>
       </Box>
     );
