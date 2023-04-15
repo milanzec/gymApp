@@ -8,8 +8,6 @@ import SimilarExercises from "../SimilarExercises";
 
 import { exerciseOptions, fetchData } from "../../utils/fetchData";
 
-
-
 const ExersizeDetail = () => {
   return (
     <Box>
