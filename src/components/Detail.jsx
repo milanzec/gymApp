@@ -34,7 +34,9 @@ const Detail = ({ exerciseDetail }) => {
     >
       <img src={gifUrl} alt={name} className="detail-image" loading="lazy" />
       <Stack sx={{ gap: { lg: "35px", xs: "20px" } }}>
-        <Typography variant="h3">{name}</Typography>
+        <Typography variant="h3" textTransform="capitalize">
+          {name}
+        </Typography>
         <Typography variant="h5">
           Exercises keep you strong. {name} {` `}
           is one of the best exercises to target your {target}.It will help you
