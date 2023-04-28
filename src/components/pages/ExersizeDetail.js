@@ -11,6 +11,8 @@ import { exersizeOptions, fetchData, YToptions } from "../../utils/fetchData";
 const ExersizeDetail = () => {
   const [exerciseDetail, setExerciseDetail] = useState({});
   const [videos, setVideos] = useState([]);
+  const [targetExercises, setTargetExercises] = useState([]);
+  const [equipmentExercises, setEquipmentExercises] = useState([]);
 
   const { id } = useParams();
 
@@ -31,6 +33,18 @@ const ExersizeDetail = () => {
         YToptions
       );
       setVideos(videosData.contents);
+
+      const targetExercisesData = await fetchData(
+        `${exerciseDbUrl}/exercises/target/${exerciseData.target}`,
+        exersizeOptions
+      );
+      setTargetExercises(targetExercisesData);
+
+      const equipmentExercisesData = await fetchData(
+        `${exerciseDbUrl}/exercises/equipment/${exerciseData.equipment}`,
+        exersizeOptions
+      );
+      setEquipmentExercises(equipmentExercisesData);
     };
 
     fetchExerciseData();
@@ -40,7 +54,10 @@ const ExersizeDetail = () => {
     <Box>
       <Detail exerciseDetail={exerciseDetail} />
       <ExersizeVideos videos={videos} name={exerciseDetail.name} />
-      <SimilarExercises />
+      <SimilarExercises
+        targetExercises={targetExercises}
+        equipmentExercises={equipmentExercises}
+      />
     </Box>
   );
 };
